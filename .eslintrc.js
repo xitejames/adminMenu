@@ -18,6 +18,10 @@ module.exports = {
     'react',
   ],
   rules: {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'no-unused-vars': 0,
+    'react/no-unused-state': 0,
+    'react/no-unused-class-component-methods': 0,
+    'class-methods-use-this': 0,
   },
 };

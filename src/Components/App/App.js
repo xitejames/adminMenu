@@ -1,11 +1,20 @@
 import React from 'react';
+import Box from '@mui/material/Box';
 import Menu from '../Menu';
+
+const styles = {
+  root: {
+    height: '100vh',
+    width: '100vw',
+    overflow: 'hidden',
+  },
+};
 
 function App() {
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <Box sx={styles.root}>
       <Menu />
-    </div>
+    </Box>
   );
 }
 
