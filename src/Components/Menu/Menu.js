@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import CarSpawn from '../CarSpawn';
 
 const styles = {
   menuLeft: {
@@ -10,8 +11,8 @@ const styles = {
     top: '5%',
     width: '25%',
     height: '90%',
-    backgroundColor: '#453AE0',
-    border: 8,
+    backgroundColor: 'white',
+    border: 6,
   },
   menuCentre: {
     position: 'absolute',
@@ -19,8 +20,8 @@ const styles = {
     top: '5%',
     width: '90%',
     height: '90%',
-    backgroundColor: '#453AE0',
-    border: 8,
+    backgroundColor: 'white',
+    border: 6,
   },
   menuRight: {
     position: 'absolute',
@@ -28,54 +29,55 @@ const styles = {
     top: '5%',
     width: '25%',
     height: '90%',
-    backgroundColor: '#453AE0',
-    border: 8,
+    backgroundColor: 'white',
+    border: 6,
   },
 
   // BUTTONS FOR THE SMALL MENUS
   buttonLeft: {
     position: 'absolute',
-    top: '45%',
+    left: '-6%',
     width: '3%',
+    top: '45%',
     height: '10%',
-    backgroundColor: '#453AE0',
+    backgroundColor: 'white',
     minWidth: 0,
     borderRadius: 0,
-    border: 4,
+    border: 6,
     borderColor: 'black',
     '&:hover': {
-      backgroundColor: '#8781E6',
+      backgroundColor: 'black',
     },
   },
   buttonRight: {
     position: 'absolute',
-    left: '95%',
-    top: '45%',
+    left: '100%',
     width: '3%',
+    top: '45%',
     height: '10%',
-    backgroundColor: '#453AE0',
+    backgroundColor: 'white',
     minWidth: '10px',
     borderRadius: 0,
-    border: 4,
+    border: 6,
     borderColor: 'black',
     '&:hover': {
-      backgroundColor: '#8781E6',
+      backgroundColor: 'black',
     },
   },
   buttonCentre: {
     position: 'absolute',
     left: '40%',
-    top: '97.5%',
+    top: '100%',
     width: '20%',
     height: '2%',
-    backgroundColor: '#453AE0',
+    backgroundColor: 'white',
     minWidth: '100px',
     minHeight: '24px',
     borderRadius: 0,
-    border: 4,
+    border: 6,
     borderColor: 'black',
     '&:hover': {
-      backgroundColor: '#8781E6',
+      backgroundColor: 'black',
     },
   },
 
@@ -83,46 +85,47 @@ const styles = {
   buttonLeftBig: {
     position: 'absolute',
     top: '45%',
-    width: '1%',
     height: '10%',
-    backgroundColor: '#453AE0',
+    left: '-1.7%',
+    width: '1%',
+    backgroundColor: 'white',
     minWidth: 0,
     borderRadius: 0,
-    border: 4,
+    border: 6,
     borderColor: 'black',
     '&:hover': {
-      backgroundColor: '#8781E6',
+      backgroundColor: 'black',
     },
   },
   buttonRightBig: {
     position: 'absolute',
-    left: '98.8%',
+    left: '100%',
     top: '45%',
     width: '1%',
     height: '10%',
-    backgroundColor: '#453AE0',
+    backgroundColor: 'white',
     minWidth: '10px',
     borderRadius: 0,
-    border: 4,
+    border: 6,
     borderColor: 'black',
     '&:hover': {
-      backgroundColor: '#8781E6',
+      backgroundColor: 'black',
     },
   },
   buttonCentreBig: {
     position: 'absolute',
     left: '46%',
-    top: '98%',
+    top: '100%',
     width: '7%',
     height: '2%',
-    backgroundColor: '#453AE0',
+    backgroundColor: 'white',
     minWidth: '10px',
     minHeight: '10px',
     borderRadius: 0,
-    border: 4,
+    border: 6,
     borderColor: 'black',
     '&:hover': {
-      backgroundColor: '#8781E6',
+      backgroundColor: 'black',
     },
   },
 
@@ -171,13 +174,23 @@ class Menu extends Component {
         sx={menuStyleToUse}
         square
       >
-        <Box>
-          <p>asd</p>
-        </Box>
+        <CarSpawn />
 
-        <Button fullWidth sx={this.isMenuBig(menuOrientation) ? styles.buttonLeftBig : styles.buttonLeft} onClick={() => { this.toggleOrientation('LEFT'); }} />
-        <Button fullWidth sx={this.isMenuBig(menuOrientation) ? styles.buttonRightBig : styles.buttonRight} onClick={() => { this.toggleOrientation('RIGHT'); }} />
-        <Button fullWidth sx={this.isMenuBig(menuOrientation) ? styles.buttonCentreBig : styles.buttonCentre} onClick={() => { this.toggleOrientation('CENTRE'); }} />
+        <Button
+          fullWidth
+          sx={this.isMenuBig(menuOrientation) ? styles.buttonLeftBig : styles.buttonLeft}
+          onClick={() => { this.toggleOrientation('LEFT'); }}
+        />
+        <Button
+          fullWidth
+          sx={this.isMenuBig(menuOrientation) ? styles.buttonRightBig : styles.buttonRight}
+          onClick={() => { this.toggleOrientation('RIGHT'); }}
+        />
+        <Button
+          fullWidth
+          sx={this.isMenuBig(menuOrientation) ? styles.buttonCentreBig : styles.buttonCentre}
+          onClick={() => { this.toggleOrientation('CENTRE'); }}
+        />
 
       </Paper>
     );
