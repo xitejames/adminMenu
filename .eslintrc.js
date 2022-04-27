@@ -23,5 +23,7 @@ module.exports = {
     'react/no-unused-state': 0,
     'react/no-unused-class-component-methods': 0,
     'class-methods-use-this': 0,
+    'no-dupe-keys': 0,
+    'react/prop-types': 0,
   },
 };

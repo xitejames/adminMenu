@@ -4,7 +4,7 @@ import Menu from '../Menu';
 
 const styles = {
   root: {
-    height: '100vh',
+    height: '98vh',
     width: '100vw',
     overflow: 'hidden',
   },
