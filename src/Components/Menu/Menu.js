@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import CarSpawn from '../CarSpawn';
+import CustomAccordion from '../CustomAccordion';
 import MenuAppBar from '../MenuAppBar';
 
 const styles = {
@@ -11,7 +9,7 @@ const styles = {
     left: '1%',
     top: '2%',
     width: '20%',
-    height: '70%',
+    height: 'calc(70% - 80px)',
     background: '#0F2027',
     background: '-webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027)',
     background: 'linear-gradient(to left, #2C5364, #203A43, #11242b)',
@@ -22,7 +20,7 @@ const styles = {
     left: '15%',
     top: '5%',
     width: '70%',
-    height: '70%',
+    height: 'calc(70% - 80px)',
     background: '#0F2027',
     background: '-webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027)',
     background: 'linear-gradient(to left, #2C5364, #203A43, #11242b)',
@@ -33,7 +31,7 @@ const styles = {
     left: '78%',
     top: '2%',
     width: '20%',
-    height: '70%',
+    height: 'calc(70% - 80px)',
     background: '#0F2027',
     background: '-webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027)',
     background: 'linear-gradient(to left, #2C5364, #203A43, #11242b)',
@@ -88,7 +86,7 @@ class Menu extends Component {
         <MenuAppBar
           toggleOrientation={(orientationType) => this.toggleOrientation(orientationType)}
         />
-        {/* <CarSpawn /> */}
+        <CustomAccordion menuTitle="Car Spawner" />
       </Paper>
     );
   }

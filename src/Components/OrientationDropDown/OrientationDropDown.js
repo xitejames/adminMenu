@@ -12,6 +12,8 @@ const styles = {
     height: 320,
     transform: 'translateZ(0px)',
     flexGrow: 1,
+    zIndex: 10,
+
   },
   dropDown: {
     position: 'absolute',
