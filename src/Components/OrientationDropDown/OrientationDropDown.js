@@ -5,26 +5,34 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import ArrowCircleDownOutlinedIcon from '@mui/icons-material/ArrowCircleDownOutlined';
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 
 const styles = {
   root: {
-    height: 320,
-    transform: 'translateZ(0px)',
     flexGrow: 1,
     zIndex: 10,
-
   },
   dropDown: {
     position: 'absolute',
-    top: 130,
-    right: 40,
+    top: 10,
+    right: 48,
+    background: 'none',
+    border: 'none',
+    boxShadow: 'none',
     '& .MuiSpeedDial-fab': {
       background: 'none',
+      border: 'none',
+      boxShadow: 'none',
+      '&:hover': {
+        background: 'none',
+        border: 'none',
+        boxShadow: 'none',
+      },
     },
   },
   dropDownIcon: {
     color: '#FF0099',
+    fontSize: 40,
   },
 };
 
@@ -36,7 +44,7 @@ export default function OrientationDropDown(props) {
         ariaLabel="SpeedDial basic example"
         sx={styles.dropDown}
         icon={(
-          <KeyboardArrowDownOutlinedIcon
+          <ChangeCircleIcon
             sx={styles.dropDownIcon}
           />
 )}
@@ -44,19 +52,19 @@ export default function OrientationDropDown(props) {
       >
         <SpeedDialAction
           icon={(
-            <ArrowCircleLeftOutlinedIcon onClick={() => { toggleOrientation('LEFT'); }} />
+            <ArrowCircleLeftOutlinedIcon onClick={(event) => { event.stopPropagation(); toggleOrientation('LEFT'); }} />
 )}
           tooltipTitle="Left"
         />
         <SpeedDialAction
           icon={(
-            <ArrowCircleRightOutlinedIcon onClick={() => { toggleOrientation('RIGHT'); }} />
+            <ArrowCircleRightOutlinedIcon onClick={(event) => { event.stopPropagation(); toggleOrientation('RIGHT'); }} />
 )}
           tooltipTitle="Right"
         />
         <SpeedDialAction
           icon={(
-            <ArrowCircleDownOutlinedIcon onClick={() => { toggleOrientation('CENTRE'); }} />
+            <ArrowCircleDownOutlinedIcon onClick={(event) => { event.stopPropagation(); toggleOrientation('CENTRE'); }} />
 )}
           tooltipTitle="Centre"
         />

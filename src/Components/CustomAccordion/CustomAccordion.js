@@ -21,15 +21,16 @@ const styles = {
 function CustomAccordion(props) {
   const [expanded, setExpanded] = React.useState(false);
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleChange = () => {
+    setExpanded(!expanded);
   };
   const { menuTitle } = props;
 
   return (
     <Box sx={styles.root}>
-      <Accordion expanded={expanded === `${menuTitle}Panel`} onChange={handleChange(`${menuTitle}Panel`)}>
+      <Accordion expanded={expanded} onClick={() => handleChange()}>
         <AccordionSummary
+          onClick={() => handleChange()}
           sx={styles.accordionSummary}
           expandIcon={<ExpandMoreIcon />}
         >
