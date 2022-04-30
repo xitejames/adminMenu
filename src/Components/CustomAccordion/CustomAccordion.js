@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Children, Component } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -15,6 +15,18 @@ const styles = {
   accordionSummary: {
     minHeight: '60px',
     width: '100%',
+    background: '#0F2027',
+    background: '-webkit-linear-gradient(to bottom, #FF0099, #203A43, #0F2027)',
+    background: 'linear-gradient(to bottom, #FF0099, #203A43, #0F2027)',
+  },
+  accordionText: {
+    color: '#FF0099',
+    fontWeight: 'bold',
+    fontSize: '20px',
+  },
+  accordionContents: {
+    background: '#0F2027',
+    padding: 0,
   },
 };
 
@@ -24,7 +36,7 @@ function CustomAccordion(props) {
   const handleChange = () => {
     setExpanded(!expanded);
   };
-  const { menuTitle } = props;
+  const { menuTitle, componentToDisplay } = props;
 
   return (
     <Box sx={styles.root}>
@@ -34,11 +46,13 @@ function CustomAccordion(props) {
           sx={styles.accordionSummary}
           expandIcon={<ExpandMoreIcon />}
         >
-          <Typography>
+          <Typography sx={styles.accordionText}>
             {menuTitle !== undefined && menuTitle !== null ? menuTitle : ''}
           </Typography>
         </AccordionSummary>
-        <AccordionDetails />
+        <AccordionDetails sx={styles.accordionContents}>
+          {componentToDisplay}
+        </AccordionDetails>
       </Accordion>
     </Box>
   );

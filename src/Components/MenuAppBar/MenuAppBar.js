@@ -15,7 +15,7 @@ const styles = {
   headingText: {
     color: '#FF0099',
     fontWeight: 'bold',
-    fontSize: '25px',
+    fontSize: '30px',
   },
 };
 

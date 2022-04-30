@@ -16,9 +16,6 @@ const styles = {
     position: 'absolute',
     top: 10,
     right: 48,
-    background: 'none',
-    border: 'none',
-    boxShadow: 'none',
     '& .MuiSpeedDial-fab': {
       background: 'none',
       border: 'none',

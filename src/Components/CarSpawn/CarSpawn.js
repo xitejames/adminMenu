@@ -1,45 +1,52 @@
 import React, { Component } from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { Grid } from '@mui/material';
 
 const styles = {
   root: {
-    height: '100%',
+    minHeight: '140px',
+    height: '20%',
+    width: '100%',
+    marginLeft: 0,
+  },
+  gridBase: {
     width: '100%',
   },
-  accordion: {
+  textHeader: {
+    color: '#FF0099',
+    fontWeight: 'bold',
+    fontSize: '20px',
+    marginLeft: '1%',
+
+  },
+  carSpawnTextField: {
+    width: '100%',
+    color: '#FF0099',
+    fontWeight: 'bold',
+    fontSize: '20px',
+    border: '2px solid #FF0099',
+    outline: 'none',
+    marginBottom: '1%',
+    '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      border: 0,
+    },
+
   },
   spawnButton: {
-    background: 'white',
-    minHeight: '60px',
-    width: '30%',
-    border: 3,
-    borderColor: 'black',
-    color: 'black',
+    color: '#FF0099',
     fontWeight: 'bold',
-    '&:hover': {
-      backgroundColor: 'white',
-    },
+    fontSize: '20px',
+    background: '#0F2027',
+    background: '-webkit-linear-gradient(to bottom, #FF0099, #203A43, #0F2027)',
+    background: 'linear-gradient(to bottom, #FF0099, #203A43, #0F2027)',
+    marginBottom: '2%',
   },
-  text: {
-    color: 'black',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-  },
-  textField: {
-    width: '70%',
-    color: 'black',
-    fontWeight: 'bold',
-    '& .MuiOutlinedInput-root': {
-      border: 3,
-      borderColor: 'black',
-    },
+  gridItemStyle: {
+    marginLeft: '1%',
+    marginRight: '1%',
   },
 };
 
@@ -53,45 +60,44 @@ class CarSpawn extends Component {
 
   handleCarSpawn = () => {
     const { carToSpawn } = this.state;
+    console.log(carToSpawn);
   };
 
   render() {
     const { carToSpawn } = this.state;
 
     return (
-      <Box sx={styles.root}>
-        <Accordion sx={styles.accordion}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography sx={styles.text}>Car Spawn</Typography>
-          </AccordionSummary>
-          <AccordionDetails sx={styles.accordionDetails}>
-            <Typography sx={styles.text}>
+      <Box sx={styles.root} onClick={((event) => { event.stopPropagation(); })}>
+        <Grid container spacing={1} sx={styles.gridBase}>
+          <Grid item xs={12}>
+            <Typography sx={styles.textHeader}>
               Type the name of the car to spawn
             </Typography>
+          </Grid>
+
+          <Grid item xs={12} sx={styles.gridItemStyle}>
             <TextField
               value={carToSpawn}
-              sx={styles.textField}
+              sx={styles.carSpawnTextField}
               variant="outlined"
               onChange={(event) => {
                 const { value } = event.target;
                 this.setState({ carToSpawn: value });
               }}
+              InputProps={{
+                sx: styles.textHeader,
+              }}
             />
+          </Grid>
+          <Grid item xs={6} sx={styles.gridItemStyle}>
             <Button
-              fullWidth
               sx={styles.spawnButton}
-              onClick={() => { this.handleCarSpawn(); }}
+              onClick={(event) => { event.stopPropagation(); this.handleCarSpawn(); }}
             >
               Spawn Car
             </Button>
-            {' '}
-
-          </AccordionDetails>
-        </Accordion>
+          </Grid>
+        </Grid>
       </Box>
 
     );
