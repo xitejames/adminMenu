@@ -60,7 +60,6 @@ class CarSpawn extends Component {
 
   handleCarSpawn = () => {
     const { carToSpawn } = this.state;
-    console.log(carToSpawn);
   };
 
   render() {
